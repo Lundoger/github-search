@@ -7,4 +7,4 @@ Small web-app with github API for searching repos other people
 - RTK Query
 - Scss
 # Preview:
-[github-search.preview](https://animated-semifreddo-7bb0b7.netlify.app/)
+[github-search.preview](https://github-search-lundoger.netlify.app)
