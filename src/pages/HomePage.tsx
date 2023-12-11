@@ -8,11 +8,11 @@ const HomePage = () => {
 	const [search, setSearch] = useState('')
 	const [dropdown, setDropdown] = useState(false)
 	const debounced = useDebounce(search)
-	const {isLoading, isError, data: users} = useSearchUsersQuery(debounced, {
+	const {isFetching, isError, data: users} = useSearchUsersQuery(debounced, {
 		skip: debounced.length < 3,
 		refetchOnFocus: true,
 	})
-	const [fetchRepos, {isLoading: areReposLoading, isError: isRepoError, data: repos}] = useLazyGetUsersReposQuery()
+	const [fetchRepos, {isFetching: areReposLoading, isError: isRepoError, data: repos}] = useLazyGetUsersReposQuery()
 
 	useEffect(() => {
 		setDropdown(debounced.length >= 3 && users?.length! > 0)
@@ -38,7 +38,7 @@ const HomePage = () => {
 							value={search}
 							onChange={e => setSearch(e.target.value)}
 						/>
-						{isLoading && <Spinner />}
+						{isFetching && <Spinner />}
 						{dropdown && (
 							<ul className="search__dropdown dropdown">
 								{users?.map(user => (
