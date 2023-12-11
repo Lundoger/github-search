@@ -39,7 +39,7 @@ const HomePage = () => {
 							onChange={e => setSearch(e.target.value)}
 						/>
 						{isFetching && <Spinner />}
-						{dropdown && (
+						{!isFetching && dropdown && (
 							<ul className="search__dropdown dropdown">
 								{users?.map(user => (
 									<li 
@@ -59,7 +59,7 @@ const HomePage = () => {
 					{!isRepoError && (	
 						<ul className="repos__list list-repos">
 							{areReposLoading && <Spinner/>}
-							{repos?.map(repo => (
+							{!areReposLoading && repos?.map(repo => (
 								<RepoCard 
 									key={repo.id}
 									repo={repo}
