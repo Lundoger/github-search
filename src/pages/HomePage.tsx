@@ -56,15 +56,18 @@ const HomePage = () => {
 			</section>
 			<section className="repos page__repos">
 				<div className="repos__container">
+					{isRepoError &&  <p className='error-message'>Something went wrong...</p>}
 					{!isRepoError && (	
 						<ul className="repos__list list-repos">
 							{areReposLoading && <Spinner/>}
-							{!areReposLoading && repos?.map(repo => (
-								<RepoCard 
-									key={repo.id}
-									repo={repo}
-								/>
-							))}
+							{!areReposLoading && repos && (
+								repos.map(repo => (
+									<RepoCard 
+										key={repo.id}
+										repo={repo}
+									/>
+								))
+							)}
 						</ul>
 					)}
 				</div>
