@@ -1,0 +1,54 @@
+//====================================================================================================
+.header {
+	position: fixed;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: rem(15);
+	row-gap: rem(10);
+	@include adaptiveValue("padding-left", 35, 10);
+	@include adaptiveValue("padding-right", 35, 10);
+	padding: rem(15) 0;
+	height: rem(60);
+	&::before{
+		content:'';
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: rem(1);
+		background-color: #fff;
+		width: 100%;
+	}
+	&__logo {
+		@include adaptiveValue("font-size", 18, 14);
+		font-weight: 700;
+		display: flex;
+		align-items: center;
+		gap: rem(5);
+		&::before{
+			content:'';
+			flex: 0 0 rem(30);
+			width: rem(30);
+			height: rem(30);
+			background: url('../assets/github-logo.svg') 0 0 / contain no-repeat;
+		}
+	}
+
+	&__menu {}
+}
+.menu {
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		@include adaptiveValue("gap", 20, 10);
+	}
+
+	&__item {}
+
+	&__link {
+		@include adaptiveValue("font-size", 18, 14);
+	}
+}
